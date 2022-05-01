@@ -56,19 +56,19 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fPg-Dm-Sq1">
                                                 <rect key="frame" x="76" y="0.0" width="52" height="130"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LG-wU-S7e">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LG-wU-S7e">
                                                         <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aab-PQ-ShN">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aab-PQ-ShN">
                                                         <rect key="frame" x="0.0" y="50" width="52" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8er-PV-dCu">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8er-PV-dCu">
                                                         <rect key="frame" x="0.0" y="100" width="52" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
@@ -85,19 +85,19 @@
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uil-2G-uxR">
                                                         <rect key="frame" x="-2" y="0.0" width="262" height="31"/>
                                                         <connections>
-                                                            <action selector="changeColorView" destination="BYZ-38-t0r" eventType="valueChanged" id="KBb-4e-SYG"/>
+                                                            <action selector="rgbSliderMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="dM0-i2-kGg"/>
                                                         </connections>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8Vj-mQ-gnP">
                                                         <rect key="frame" x="-2" y="50" width="262" height="31"/>
                                                         <connections>
-                                                            <action selector="changeColorView" destination="BYZ-38-t0r" eventType="valueChanged" id="ex6-Xx-HPe"/>
+                                                            <action selector="rgbSliderMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="HXT-gn-Esg"/>
                                                         </connections>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-Lc-la0">
                                                         <rect key="frame" x="-2" y="100" width="262" height="31"/>
                                                         <connections>
-                                                            <action selector="changeColorView" destination="BYZ-38-t0r" eventType="valueChanged" id="97d-8S-2fx"/>
+                                                            <action selector="rgbSliderMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="7Fc-Vk-vql"/>
                                                         </connections>
                                                     </slider>
                                                 </subviews>

@@ -28,15 +28,15 @@ class SettingsViewController: UIViewController {
         greenSlider.minimumTrackTintColor = UIColor.green
         blueSlider.minimumTrackTintColor = UIColor.blue
 
-        changeColorValue()
+        setColorView()
     }
 
-    @IBAction func changeColorView() {
-        changeColor()
-        changeColorValue()
+    @IBAction func rgbSliderMove(_ sender: UISlider) {
+        setColorView()
+        setColorValue(for: sender)
     }
 
-    private func changeColor() {
+    private func setColorView() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
@@ -45,10 +45,18 @@ class SettingsViewController: UIViewController {
         )
     }
 
-    private func changeColorValue() {
-        redColorValue.text = String(format: "%.2f", redSlider.value)
-        greenColorValue.text = String(format: "%.2f", greenSlider.value)
-        blueColorValue.text = String(format: "%.2f",blueSlider.value)
+    private func setColorValue(for slider: UISlider) {
+        switch slider {
+        case redSlider:
+            redColorValue.text = getColorValue(for: slider)
+        case greenSlider:
+            greenColorValue.text = getColorValue(for: slider)
+        default:
+            blueColorValue.text = getColorValue(for: slider)
+        }
     }
 
+    private func getColorValue(for slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
+    }
 }
