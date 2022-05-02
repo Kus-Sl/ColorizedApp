@@ -26,33 +26,25 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setSlidersValues(accordingTo: getRGBColorValues(from: receivedColor))
+        
+        setColorValues(accordingTo: getRGBColorValues(from: receivedColor))
         setViewColor()
     }
 
-    @IBAction func doneButtonPresed() {
+    @IBAction func doneButtonPressed() {
         if let passingColor = colorView.backgroundColor {
             delegate.setBackgroundColor(by: passingColor)
         }
         dismiss(animated: true)
     }
 
-    // Стремился избавиться от отдельных аутлетов, поэтому захардкодил через индексы.
-    // Думаю, что при работе с RGB, это не мега критично.
     @IBAction func rgbSlidersMove(_ sender: UISlider) {
         setViewColor()
-
-        switch sender.tag {
-        case 0:
-            colorValuesLabels[0].text = getColorValue(from: sender)
-        case 1:
-            colorValuesLabels[1].text = getColorValue(from: sender)
-        default:
-            colorValuesLabels[2].text = getColorValue(from: sender)
-        }
+        setSlidersValues(for: sender.tag, from: sender)
     }
 
+    // Стремился избавиться от отдельных аутлетов, поэтому захардкодил через индексы.
+    // Думаю, что при работе с RGB, это не мега критично.
     private func setViewColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(rgbSliders[0].value),
@@ -65,7 +57,7 @@ class SettingsViewController: UIViewController {
 
 // MARK: Sliders settings
 extension SettingsViewController {
-    private func setSlidersValues(accordingTo colors: [CGFloat]) {
+    private func setColorValues(accordingTo colors: [CGFloat]) {
         for (color, slider) in zip(colors, rgbSliders) {
             slider.value = Float(color)
         }
@@ -73,7 +65,17 @@ extension SettingsViewController {
         for (label, slider) in zip(colorValuesLabels, rgbSliders) {
             label.text = getColorValue(from: slider)
         }
+
+        for (textField, slider) in zip(colorValuesTextField, rgbSliders) {
+            textField.text = getColorValue(from: slider)
+        }
     }
+
+    private func setSlidersValues(for tag: Int, from slider: UISlider ) {
+        colorValuesLabels[tag].text = getColorValue(from: slider)
+        colorValuesTextField[tag].text = getColorValue(from: slider)
+    }
+
 
     private func getRGBColorValues(from color: UIColor) -> [CGFloat] {
         let redColor = CIColor(color: color).red
