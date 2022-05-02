@@ -19,15 +19,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
 
+    var receivedColor: UIColor!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         colorView.layer.cornerRadius = 20
 
-        redSlider.minimumTrackTintColor = UIColor.red
-        greenSlider.minimumTrackTintColor = UIColor.green
-        blueSlider.minimumTrackTintColor = UIColor.blue
-
+        setSlidersValue(by: receivedColor)
         setColorView()
     }
 
@@ -44,19 +43,35 @@ class SettingsViewController: UIViewController {
             alpha: 1
         )
     }
+}
+
+// MARK: Sliders settings
+extension SettingsViewController {
+
+    private func setSlidersValue(by color: UIColor) {
+        let rgbColor = CIColor(color: color)
+
+        redSlider.value = Float(rgbColor.red)
+        greenSlider.value = Float(rgbColor.green)
+        blueSlider.value = Float(rgbColor.blue)
+
+        redColorValue.text = getColorValue(from: redSlider)
+        greenColorValue.text = getColorValue(from: greenSlider)
+        blueColorValue.text = getColorValue(from: blueSlider)
+    }
 
     private func setColorValue(for slider: UISlider) {
         switch slider {
         case redSlider:
-            redColorValue.text = getColorValue(for: slider)
+            redColorValue.text = getColorValue(from: slider)
         case greenSlider:
-            greenColorValue.text = getColorValue(for: slider)
+            greenColorValue.text = getColorValue(from: slider)
         default:
-            blueColorValue.text = getColorValue(for: slider)
+            blueColorValue.text = getColorValue(from: slider)
         }
     }
 
-    private func getColorValue(for slider: UISlider) -> String {
+    private func getColorValue(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
 }
