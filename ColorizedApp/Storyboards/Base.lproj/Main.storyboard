@@ -109,16 +109,29 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="270" id="Ys6-2P-LXc">
+                                    <constraint firstAttribute="height" constant="226" id="Ys6-2P-LXc">
                                         <variation key="heightClass=regular-widthClass=compact" constant="320"/>
                                     </constraint>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwP-b6-w9L">
+                                <rect key="frame" x="173.33333333333334" y="768" width="81.666666666666657" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemMintColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OwP-b6-w9L" secondAttribute="bottom" constant="80" id="178-GW-ClX">
+                                <variation key="heightClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="GXS-dU-InC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="65u-XY-9lU"/>
+                            <constraint firstItem="OwP-b6-w9L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9nz-kV-HqG"/>
                             <constraint firstItem="GXS-dU-InC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Ar1-cl-CYb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GXS-dU-InC" secondAttribute="trailing" constant="16" id="zXO-IF-MdL"/>
                         </constraints>
@@ -127,6 +140,7 @@
                         <outlet property="blueColorValue" destination="8er-PV-dCu" id="TPN-f2-h0V"/>
                         <outlet property="blueSlider" destination="2Bv-Lc-la0" id="dR1-Ez-Esu"/>
                         <outlet property="colorView" destination="Xwp-51-dZE" id="ER0-yy-Hxw"/>
+                        <outlet property="doneButton" destination="OwP-b6-w9L" id="Fci-Or-b5O"/>
                         <outlet property="greenColorValue" destination="aab-PQ-ShN" id="rgP-7P-klZ"/>
                         <outlet property="greenSlider" destination="8Vj-mQ-gnP" id="frz-Nl-PvE"/>
                         <outlet property="redColorValue" destination="3LG-wU-S7e" id="V6p-fC-N4t"/>
@@ -179,11 +193,17 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

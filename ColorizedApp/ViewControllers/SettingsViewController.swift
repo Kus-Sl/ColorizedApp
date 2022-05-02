@@ -9,7 +9,9 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var colorView: UIView! {
+        didSet { colorView.layer.cornerRadius = 20 }
+    }
 
     @IBOutlet weak var redColorValue: UILabel!
     @IBOutlet weak var greenColorValue: UILabel!
@@ -18,6 +20,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
+
+    @IBOutlet weak var doneButton: UIButton! {
+        didSet { doneButton.layer.cornerRadius = 20 }
+    }
 
     var receivedColor: UIColor!
 
