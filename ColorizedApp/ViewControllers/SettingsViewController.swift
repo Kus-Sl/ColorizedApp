@@ -13,15 +13,13 @@ class SettingsViewController: UIViewController {
         didSet { colorView.layer.cornerRadius = 20 }
     }
 
-    @IBOutlet weak var redColorValue: UILabel!
-    @IBOutlet weak var greenColorValue: UILabel!
-    @IBOutlet weak var blueColorValue: UILabel!
+    @IBOutlet weak var redColorValueLabel: UILabel!
+    @IBOutlet weak var greenColorValueLabel: UILabel!
+    @IBOutlet weak var blueColorValueLabel: UILabel!
 
-    @IBOutlet weak var redSlider: UISlider!
-    @IBOutlet weak var greenSlider: UISlider!
-    @IBOutlet weak var blueSlider: UISlider!
-
-    
+    @IBOutlet var colorValuesLabels: [UILabel]!
+    @IBOutlet var rgbSliders: [UISlider]!
+    @IBOutlet var colorValuesTextField: [UITextField]!
 
     @IBOutlet weak var doneButton: UIButton! {
         didSet { doneButton.layer.cornerRadius = 20 }
@@ -33,27 +31,35 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setSlidersValue(by: receivedColor)
-        setColorView()
+        setSlidersValues(accordingTo: getRGBColorValues(from: receivedColor))
+        setViewColor()
     }
 
     @IBAction func doneButtonPresed() {
-        if let color = colorView.backgroundColor {
-            delegate.setBackgroundColor(by: color)
+        if let passingColor = colorView.backgroundColor {
+            delegate.setBackgroundColor(by: passingColor)
         }
         dismiss(animated: true)
     }
 
-    @IBAction func rgbSliderMove(_ sender: UISlider) {
-        setColorView()
-        setColorValue(for: sender)
+    @IBAction func rgbSlidersMove(_ sender: UISlider) {
+        setViewColor()
+
+        switch sender.tag {
+        case 0:
+            redColorValueLabel.text = getColorValue(from: sender)
+        case 1:
+            greenColorValueLabel.text = getColorValue(from: sender)
+        default:
+            blueColorValueLabel.text = getColorValue(from: sender)
+        }
     }
 
-    private func setColorView() {
+    private func setViewColor() {
         colorView.backgroundColor = UIColor(
-            red: CGFloat(redSlider.value),
-            green: CGFloat(greenSlider.value),
-            blue: CGFloat(blueSlider.value),
+            red: CGFloat(rgbSliders[0].value),
+            green: CGFloat(rgbSliders[1].value),
+            blue: CGFloat(rgbSliders[2].value),
             alpha: 1
         )
     }
@@ -61,28 +67,23 @@ class SettingsViewController: UIViewController {
 
 // MARK: Sliders settings
 extension SettingsViewController {
+    private func setSlidersValues(accordingTo colors: [CGFloat]) {
+        for (color, slider) in zip(colors, rgbSliders) {
+            slider.value = Float(color)
+        }
 
-    private func setSlidersValue(by color: UIColor) {
-        let rgbColor = CIColor(color: color)
-
-        redSlider.value = Float(rgbColor.red)
-        greenSlider.value = Float(rgbColor.green)
-        blueSlider.value = Float(rgbColor.blue)
-
-        redColorValue.text = getColorValue(from: redSlider)
-        greenColorValue.text = getColorValue(from: greenSlider)
-        blueColorValue.text = getColorValue(from: blueSlider)
+        for (label, slider) in zip(colorValuesLabels, rgbSliders) {
+            label.text = getColorValue(from: slider)
+        }
     }
 
-    private func setColorValue(for slider: UISlider) {
-        switch slider {
-        case redSlider:
-            redColorValue.text = getColorValue(from: slider)
-        case greenSlider:
-            greenColorValue.text = getColorValue(from: slider)
-        default:
-            blueColorValue.text = getColorValue(from: slider)
-        }
+    private func getRGBColorValues(from color: UIColor) -> [CGFloat] {
+        let redColor = CIColor(color: color).red
+        let greenColor = CIColor(color: color).green
+        let blueColor = CIColor(color: color).blue
+
+        let rgbColorValues = [redColor, greenColor, blueColor]
+        return rgbColorValues
     }
 
     private func getColorValue(from slider: UISlider) -> String {

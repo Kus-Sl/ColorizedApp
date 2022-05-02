@@ -53,7 +53,7 @@
                                                     <constraint firstAttribute="width" constant="66" id="VAD-Bo-sjo"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fPg-Dm-Sq1">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fPg-Dm-Sq1" userLabel="SliderValuesSV">
                                                 <rect key="frame" x="76" y="0.0" width="52" height="130"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LG-wU-S7e">
@@ -79,46 +79,46 @@
                                                     <constraint firstAttribute="width" constant="52" id="aWP-2s-4fP"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zSq-5D-UhM">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zSq-5D-UhM" userLabel="SlidersSV">
                                                 <rect key="frame" x="138" y="0.0" width="129" height="130"/>
                                                 <subviews>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uil-2G-uxR">
                                                         <rect key="frame" x="-2" y="0.0" width="133" height="31"/>
                                                         <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                                         <connections>
-                                                            <action selector="rgbSliderMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="dM0-i2-kGg"/>
+                                                            <action selector="rgbSlidersMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="dM0-i2-kGg"/>
                                                         </connections>
                                                     </slider>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8Vj-mQ-gnP">
+                                                    <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8Vj-mQ-gnP">
                                                         <rect key="frame" x="-2" y="50" width="133" height="31"/>
                                                         <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                                         <connections>
-                                                            <action selector="rgbSliderMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="HXT-gn-Esg"/>
+                                                            <action selector="rgbSlidersMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="HXT-gn-Esg"/>
                                                         </connections>
                                                     </slider>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-Lc-la0">
+                                                    <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-Lc-la0">
                                                         <rect key="frame" x="-2" y="100" width="133" height="31"/>
                                                         <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
                                                         <connections>
-                                                            <action selector="rgbSliderMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="7Fc-Vk-vql"/>
+                                                            <action selector="rgbSlidersMove:" destination="BYZ-38-t0r" eventType="valueChanged" id="7Fc-Vk-vql"/>
                                                         </connections>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fdP-m5-4MB">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fdP-m5-4MB" userLabel="TextFieldsSV">
                                                 <rect key="frame" x="277" y="0.0" width="66" height="130"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zj0-Zk-Og0">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zj0-Zk-Og0">
                                                         <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="1np-A1-zZk">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="1np-A1-zZk">
                                                         <rect key="frame" x="0.0" y="50" width="66" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dg4-0U-Ien">
+                                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dg4-0U-Ien">
                                                         <rect key="frame" x="0.0" y="100" width="66" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -163,14 +163,20 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="blueColorValue" destination="8er-PV-dCu" id="TPN-f2-h0V"/>
-                        <outlet property="blueSlider" destination="2Bv-Lc-la0" id="dR1-Ez-Esu"/>
+                        <outlet property="blueColorValueLabel" destination="8er-PV-dCu" id="TPN-f2-h0V"/>
                         <outlet property="colorView" destination="Xwp-51-dZE" id="ER0-yy-Hxw"/>
                         <outlet property="doneButton" destination="OwP-b6-w9L" id="Fci-Or-b5O"/>
-                        <outlet property="greenColorValue" destination="aab-PQ-ShN" id="rgP-7P-klZ"/>
-                        <outlet property="greenSlider" destination="8Vj-mQ-gnP" id="frz-Nl-PvE"/>
-                        <outlet property="redColorValue" destination="3LG-wU-S7e" id="V6p-fC-N4t"/>
-                        <outlet property="redSlider" destination="Uil-2G-uxR" id="hhX-EV-vKg"/>
+                        <outlet property="greenColorValueLabel" destination="aab-PQ-ShN" id="rgP-7P-klZ"/>
+                        <outlet property="redColorValueLabel" destination="3LG-wU-S7e" id="V6p-fC-N4t"/>
+                        <outletCollection property="colorValuesTextField" destination="Zj0-Zk-Og0" collectionClass="NSMutableArray" id="RXl-pU-Y7R"/>
+                        <outletCollection property="colorValuesTextField" destination="1np-A1-zZk" collectionClass="NSMutableArray" id="qyw-XS-6nc"/>
+                        <outletCollection property="colorValuesTextField" destination="Dg4-0U-Ien" collectionClass="NSMutableArray" id="Rju-DB-VPf"/>
+                        <outletCollection property="rgbSliders" destination="Uil-2G-uxR" collectionClass="NSMutableArray" id="lzD-o7-ISm"/>
+                        <outletCollection property="rgbSliders" destination="8Vj-mQ-gnP" collectionClass="NSMutableArray" id="aeL-ew-JeF"/>
+                        <outletCollection property="rgbSliders" destination="2Bv-Lc-la0" collectionClass="NSMutableArray" id="aj3-gq-y5z"/>
+                        <outletCollection property="colorValuesLabels" destination="3LG-wU-S7e" collectionClass="NSMutableArray" id="pXY-kB-VEC"/>
+                        <outletCollection property="colorValuesLabels" destination="aab-PQ-ShN" collectionClass="NSMutableArray" id="wQk-xR-39K"/>
+                        <outletCollection property="colorValuesLabels" destination="8er-PV-dCu" collectionClass="NSMutableArray" id="mPn-0u-RMg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
