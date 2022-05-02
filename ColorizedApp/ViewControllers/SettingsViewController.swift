@@ -12,23 +12,27 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var colorView: UIView! {
         didSet { colorView.layer.cornerRadius = 20 }
     }
+    @IBOutlet weak var doneButton: UIButton! {
+        didSet { doneButton.layer.cornerRadius = 20 }
+    }
 
     @IBOutlet var colorValuesLabels: [UILabel]!
     @IBOutlet var rgbSliders: [UISlider]!
     @IBOutlet var colorValuesTextField: [UITextField]!
-
-    @IBOutlet weak var doneButton: UIButton! {
-        didSet { doneButton.layer.cornerRadius = 20 }
-    }
 
     var receivedColor: UIColor!
     var delegate: SettingsViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        for textField in colorValuesTextField {
+            textField.delegate = self
+        }
+
         setColorValues(accordingTo: getRGBColorValues(from: receivedColor))
         setViewColor()
+
     }
 
     @IBAction func doneButtonPressed() {
@@ -76,17 +80,39 @@ extension SettingsViewController {
         colorValuesTextField[tag].text = getColorValue(from: slider)
     }
 
+    private func setTextFieldValue(for tag: Int, from textField: UITextField) {
+        colorValuesLabels[tag].text = textField.text
+        if let test = textField.text {
+            if let testt = Float(test) {
+                rgbSliders[tag].value = testt
+            }
+        }
+    }
 
     private func getRGBColorValues(from color: UIColor) -> [CGFloat] {
-        let redColor = CIColor(color: color).red
-        let greenColor = CIColor(color: color).green
-        let blueColor = CIColor(color: color).blue
+        let redComponent = CIColor(color: color).red
+        let greenComponent = CIColor(color: color).green
+        let blueComponent = CIColor(color: color).blue
 
-        let rgbColorValues = [redColor, greenColor, blueColor]
-        return rgbColorValues
+        return [redComponent, greenComponent, blueComponent]
     }
 
     private func getColorValue(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+}
+
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        setTextFieldValue(for: textField.tag, from: textField)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 }
