@@ -13,10 +13,6 @@ class SettingsViewController: UIViewController {
         didSet { colorView.layer.cornerRadius = 20 }
     }
 
-    @IBOutlet weak var redColorValueLabel: UILabel!
-    @IBOutlet weak var greenColorValueLabel: UILabel!
-    @IBOutlet weak var blueColorValueLabel: UILabel!
-
     @IBOutlet var colorValuesLabels: [UILabel]!
     @IBOutlet var rgbSliders: [UISlider]!
     @IBOutlet var colorValuesTextField: [UITextField]!
@@ -42,16 +38,18 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
 
+    // Стремился избавиться от отдельных аутлетов, поэтому захардкодил через индексы.
+    // Думаю, что при работе с RGB, это не мега критично.
     @IBAction func rgbSlidersMove(_ sender: UISlider) {
         setViewColor()
 
         switch sender.tag {
         case 0:
-            redColorValueLabel.text = getColorValue(from: sender)
+            colorValuesLabels[0].text = getColorValue(from: sender)
         case 1:
-            greenColorValueLabel.text = getColorValue(from: sender)
+            colorValuesLabels[1].text = getColorValue(from: sender)
         default:
-            blueColorValueLabel.text = getColorValue(from: sender)
+            colorValuesLabels[2].text = getColorValue(from: sender)
         }
     }
 

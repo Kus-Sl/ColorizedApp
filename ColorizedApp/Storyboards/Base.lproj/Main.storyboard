@@ -163,11 +163,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="blueColorValueLabel" destination="8er-PV-dCu" id="TPN-f2-h0V"/>
                         <outlet property="colorView" destination="Xwp-51-dZE" id="ER0-yy-Hxw"/>
                         <outlet property="doneButton" destination="OwP-b6-w9L" id="Fci-Or-b5O"/>
-                        <outlet property="greenColorValueLabel" destination="aab-PQ-ShN" id="rgP-7P-klZ"/>
-                        <outlet property="redColorValueLabel" destination="3LG-wU-S7e" id="V6p-fC-N4t"/>
                         <outletCollection property="colorValuesTextField" destination="Zj0-Zk-Og0" collectionClass="NSMutableArray" id="RXl-pU-Y7R"/>
                         <outletCollection property="colorValuesTextField" destination="1np-A1-zZk" collectionClass="NSMutableArray" id="qyw-XS-6nc"/>
                         <outletCollection property="colorValuesTextField" destination="Dg4-0U-Ien" collectionClass="NSMutableArray" id="Rju-DB-VPf"/>
