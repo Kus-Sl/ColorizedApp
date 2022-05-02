@@ -26,14 +26,20 @@ class SettingsViewController: UIViewController {
     }
 
     var receivedColor: UIColor!
+    var delegate: SettingsViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        colorView.layer.cornerRadius = 20
-
         setSlidersValue(by: receivedColor)
         setColorView()
+    }
+
+    @IBAction func doneButtonPresed() {
+        if let color = colorView.backgroundColor {
+            delegate.setBackgroundColor(by: color)
+        }
+        dismiss(animated: true)
     }
 
     @IBAction func rgbSliderMove(_ sender: UISlider) {

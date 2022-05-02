@@ -122,6 +122,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButtonPresed" destination="BYZ-38-t0r" eventType="touchUpInside" id="WpM-ed-YAS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -163,6 +166,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="fIP-KN-RZx">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="1xu-l5-J8Z">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="showSettingsVC" modalPresentationStyle="fullScreen" id="4m1-MN-OYS"/>
                             </connections>
