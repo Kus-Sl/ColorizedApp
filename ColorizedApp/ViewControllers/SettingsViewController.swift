@@ -32,7 +32,6 @@ class SettingsViewController: UIViewController {
 
         setColorValues(accordingTo: getRGBColorValues(from: receivedColor))
         setViewColor()
-
     }
 
     @IBAction func doneButtonPressed() {
@@ -102,9 +101,11 @@ extension SettingsViewController {
     }
 }
 
+// MARK: KeyBoard's methods
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         setTextFieldValue(for: textField.tag, from: textField)
+        setViewColor()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -115,4 +116,29 @@ extension SettingsViewController: UITextFieldDelegate {
         super .touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+
+        replaceСommaToDot(for: string, in: textField)
+    }
+
+
+    private func replaceСommaToDot(
+        for string: String,
+        in textField: UITextField
+    ) -> Bool {
+
+        if string == "," {
+            guard let text = textField.text else { return true }
+            textField.text = text + "."
+            return false
+        }
+        return true
+    }
+
 }
+
