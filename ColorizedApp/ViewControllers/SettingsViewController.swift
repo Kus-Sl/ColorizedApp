@@ -21,6 +21,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
 
+    
+
     @IBOutlet weak var doneButton: UIButton! {
         didSet { doneButton.layer.cornerRadius = 20 }
     }
