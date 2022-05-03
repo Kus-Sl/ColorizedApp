@@ -113,7 +113,9 @@ extension SettingsViewController: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard isValidValue(value: textField) else { return }
+        guard getValidResult(for: isValid(value: textField)) else {
+            textField.text = nil
+            return }
         setTextFieldValue(for: textField.tag, from: textField)
         setViewColor()
     }
@@ -124,52 +126,50 @@ extension SettingsViewController: UITextFieldDelegate {
         replacementString string: String
     ) -> Bool {
 
-        replaceСommaToDot(for: string, in: textField)
-        return true
+        return replaceСommaToDot(for: string, in: textField)
     }
 
-    private func replaceСommaToDot(for string: String, in tf: UITextField) {
+    private func replaceСommaToDot(for string: String, in tf: UITextField) -> Bool {
         if string == "," {
-            guard let text = tf.text else { return }
+            guard let text = tf.text else { return true }
             tf.text = text + "."
+            return false
         }
+        return true
     }
 }
 
 // MARK: Value validation
 extension SettingsViewController {
 
-    private func isValidValue(value: UITextField) -> Bool {
-        guard let validatingString = value.text else { return false }
-        if let validatingNumber = Double(validatingString) {
-            if validatingNumber.description.count <= 4 {
-                if validatingNumber >= 0 && validatingNumber <= 1.0 {
-                } else {
-                    showAlert(title: "Ошибка",
-                              message: "Введите значение от 0.00 до 1.00",
-                              for: value)
-                    return false
-                }
-            }
+    private func getValidResult(for value: Bool) -> Bool {
+        guard value else {
+            showAlert(title: "Ошибка",
+                      message: "Введите значение от 0.00 до 1.00"
+            )
+            return false
         }
         return true
     }
 
-    private func showAlert(
-        title: String,
-        message: String,
-        for textField: UITextField
-    ) {
+    private func isValid(value: UITextField) -> Bool {
+        guard let validatingString = value.text else { return false }
+        guard let validatingNumber = Double(validatingString) else
+        { return false }
+        guard validatingNumber.description.count <= 4 else { return false }
+        guard validatingNumber >= 0 && validatingNumber <= 1.0 else
+        { return false }
+        return true
+    }
 
+    private func showAlert(title: String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
 
-        let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
-            textField.text = nil
-        }
+        let alertAction = UIAlertAction(title: "OK", style: .default)
 
         alert.addAction(alertAction)
         present(alert, animated: true)
