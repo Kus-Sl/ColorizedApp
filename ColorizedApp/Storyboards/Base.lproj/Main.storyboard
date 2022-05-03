@@ -108,7 +108,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fdP-m5-4MB" userLabel="TextFieldsSV">
                                                 <rect key="frame" x="277" y="0.0" width="66" height="130"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zj0-Zk-Og0">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.98" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zj0-Zk-Og0">
                                                         <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
