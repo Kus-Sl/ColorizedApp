@@ -9,8 +9,6 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    //сделать проверку на черный цвет в мейн экране
-
     @IBOutlet weak var colorView: UIView! {
         didSet { colorView.layer.cornerRadius = 20 }
     }
