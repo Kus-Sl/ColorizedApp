@@ -63,7 +63,7 @@ extension SettingsViewController {
 
     private func setColorValues(accordingTo colors: [CGFloat]) {
         for (color, slider) in zip(colors, rgbSliders) {
-            slider.value = Float(color)
+            slider.setValue(Float(color), animated: true)
         }
 
         for (label, slider) in zip(colorValuesLabels, rgbSliders) {
@@ -118,11 +118,7 @@ extension SettingsViewController: UITextFieldDelegate {
         setViewColor()
     }
 
-    func textField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String
-    ) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         return replaceСommaToDot(for: string, in: textField)
     }
@@ -173,4 +169,3 @@ extension SettingsViewController {
         present(alert, animated: true)
     }
 }
-
