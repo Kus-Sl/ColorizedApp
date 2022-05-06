@@ -110,6 +110,10 @@ extension SettingsViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
 
+    @objc private func didTapDone() {
+        view.endEditing(true)
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard getValidResult(for: isValid(value: textField)) else {
             textField.text = nil
@@ -118,9 +122,29 @@ extension SettingsViewController: UITextFieldDelegate {
         setViewColor()
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let keyBoardToolBar = UIToolbar()
+        keyBoardToolBar.sizeToFit()
+        textField.inputAccessoryView = keyBoardToolBar
 
-        return replaceСommaToDot(for: string, in: textField)
+        let doneButton = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(didTapDone)
+        )
+
+        let flexBarButton = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+
+        keyBoardToolBar.items = [flexBarButton, doneButton]
+    }
+
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        replaceСommaToDot(for: string, in: textField)
     }
 
     private func replaceСommaToDot(for string: String, in tf: UITextField) -> Bool {
