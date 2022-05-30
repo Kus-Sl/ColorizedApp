@@ -46,8 +46,6 @@ class SettingsViewController: UIViewController {
         setSlidersValues(for: sender.tag, from: sender)
     }
 
-    // Стремился избавиться от отдельных аутлетов, поэтому захардкодил через индексы.
-    // Думаю, что при работе с RGB, это не мега критично.
     private func setViewColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(rgbSliders[0].value),
